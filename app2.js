@@ -14,8 +14,8 @@ fs.readFile(filePath, {encoding: 'utf-8'}, function(err,data){
 
           // upload to jenkins and execute docker builds
           var exec = require('child_process').exec;
-          var args = "http://localhost:7979/job/2th-pipe/buildWithParameters \
-          --user newpouy:111edb4d3c77b2879eabd380e65281c8f1 \
+          var args = "http://localhost:7979/job/pipe1/buildWithParameters?token=test \
+          --user newpouy:116ab563b6f32be3777fb194a9b802f98f \
           --form FILE_LOCATION_AS_SET_IN_JENKINS=@/Users/kimnoel/devStudy/jenkins/bee-image-proto/Dockerfile";
   
           exec('curl -X POST ' + args, function (error, stdout, stderr) {

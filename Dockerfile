@@ -1,4 +1,4 @@
-FROM node:17.13.1-alpinefsafdsa
+FROM node:17.13.1-alpined
 
 WORKDIR /app
 
@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . /app
 
-EXPOSE 3000
+EXPOSE 3003
 
 CMD ["node", "./src/index.js"]
