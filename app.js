@@ -3,22 +3,15 @@ var FormData = require('form-data');
 var fs = require('fs');
 var data = new FormData();
 
-const jenkinsUrl = 'http://localhost:7979/job/pipe1/buildWithParameters';
+const jenkinsUrl = 'http://localhost:7980/job/pipe1/buildWithParameters?teststring=testhj';
 // notice the URL has build not buildWithParameters if the job has file parameters. ^
 const userName = 'newpouy';
-const token = '116ab563b6f32be3777fb194a9b802f98f'
-
-// const params = {"parameter": [
-//   // file0 here is the field name we are appending to data object, 
-//   // this informs jenkins while file maps to which job parameter, so even multiple file uploads can be done using this approach!
-//   {"name":"<Name Of file parameter in Job>", "file":"file0"}
-//   // incase you have additional string parameters you need to pass add it here. 
-//   {"name": "StringParam1", "value": "value"}
-// ]}
+const token = '1173f3bc6c19ef4b1ca6cb4fb4719bc38e' 
+// 7979: 116ab563b6f32be3777fb194a9b802f98f
+// 7980: 1173f3bc6c19ef4b1ca6cb4fb4719bc38e
 
 data.append('file0', fs.createReadStream('/Users/kimnoel/devStudy/jenkins/bee-image-proto/Dockerfile'));
 // data.append('file1', fs.createReadStream('/Users/kimnoel/devStudy/jenkins/bee-image-proto/Dockerfile.dev'));
-{/* data.append('json', JSON.stringify(params)); */}
 
 var config = {
   method: 'post',
