@@ -1,14 +1,13 @@
 var axios = require('axios');
 var FormData = require('form-data');
 var fs = require('fs');
+require("dotenv").config();
 var data = new FormData();
 
 const jenkinsUrl = 'http://localhost:7980/job/pipe1/buildWithParameters?teststring=testhj';
-// notice the URL has build not buildWithParameters if the job has file parameters. ^
-const userName = 'newpouy';
-const token = '1173f3bc6c19ef4b1ca6cb4fb4719bc38e' 
-// 7979: 116ab563b6f32be3777fb194a9b802f98f
-// 7980: 1173f3bc6c19ef4b1ca6cb4fb4719bc38e
+console.log(process.env)
+const userName = process.env.JENKINS_USERNAME;
+const token = process.env.JENKINS_TOKEN
 
 data.append('file0', fs.createReadStream('/Users/kimnoel/devStudy/jenkins/bee-image-proto/Dockerfile'));
 // data.append('file1', fs.createReadStream('/Users/kimnoel/devStudy/jenkins/bee-image-proto/Dockerfile.dev'));
